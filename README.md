@@ -1,10 +1,26 @@
 # 大肥鱼 · Remotion 工作台
 
+[![License: MIT](https://img.shields.io/badge/license-MIT-blue.svg)](LICENSE)
+[![Remotion](https://img.shields.io/badge/Remotion-4.0.542-0f7ef2.svg)](https://www.remotion.dev/)
+[![Node](https://img.shields.io/badge/Node-22%2B-3c873a.svg)](https://nodejs.org/)
+
 一个开箱能跑的 [Remotion](https://www.remotion.dev/) 工程：用 React 写视频，重点是**双采质感**（`@remotion/motion-blur` 动态模糊）和**冲击帧**（白闪 / Hit Stop / 变速曲线）——AI 视频流水线里「质感层」的执行端。
 
 ![预览帧](docs/preview.jpg)
 
 > 1080×1920 / 30fps 样板，`spring` 入场 + `CameraMotionBlur` 6 采样。
+
+## 两个样板
+
+| Composition | 演示什么 |
+|---|---|
+| `HelloMotion` | spring 入场 + `CameraMotionBlur` 双采质感，150 帧 |
+| `ImpactDemo` | 加速冲撞 → 2 帧白闪 → Hit Stop 冻结 0.1s → 减速滑出，90 帧 |
+
+![冲击帧](docs/impact-small.jpg)
+
+> 冲击发生在第 42 帧：白闪只亮 2 帧，紧接着画面冻结 3 帧（0.1s），再用 `Easing.out(cubic)` 滑出。
+> 三个效果都是代码，不改素材、不进后期软件。
 
 ## 为什么是 Remotion
 
@@ -38,10 +54,12 @@ npx remotion still  HelloMotion out/hello.png --frame=60
 ├─ src/
 │  ├─ index.ts          # 注册入口
 │  ├─ Root.tsx          # composition 清单：id / 尺寸 / 时长 / fps
-│  └─ Hello.tsx         # 样板：spring 入场 + motion-blur 双采质感
+│  ├─ Hello.tsx         # 样板：spring 入场 + motion-blur 双采质感
+│  └─ Impact.tsx        # 样板：白闪 + Hit Stop + 变速曲线
 ├─ remotion.config.ts   # 输出格式（默认 jpeg 帧、覆盖同名输出）
 ├─ docs/
 │  ├─ preview.jpg       # 预览帧
+│  ├─ impact-small.jpg  # 冲击帧
 │  └─ pipeline.md       # 这套工程在 AI 视频流水线里的定位
 └─ package.json
 ```
