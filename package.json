@@ -1,0 +1,26 @@
+{
+  "name": "remotion-studio",
+  "version": "0.1.0",
+  "private": true,
+  "description": "Remotion programmatic video workspace (React) — 配合 dsh-remotion 技能使用",
+  "scripts": {
+    "studio": "remotion studio",
+    "render": "remotion render",
+    "still": "remotion still",
+    "out": "remotion render HelloMotion \"E:/成品视频/成片/hello.mp4\"",
+    "out:still": "remotion still HelloMotion \"E:/成品视频/素材/图片/hello.png\" --frame=60",
+    "upgrade": "remotion upgrade"
+  },
+  "dependencies": {
+    "@remotion/cli": "4.0.542",
+    "@remotion/motion-blur": "4.0.542",
+    "react": "19.2.0",
+    "react-dom": "19.2.0",
+    "remotion": "4.0.542"
+  },
+  "devDependencies": {
+    "@types/react": "19.2.2",
+    "@types/react-dom": "19.2.1",
+    "typescript": "5.9.3"
+  }
+}
